@@ -156,7 +156,7 @@ html body .top-bar .left-nav a {
   color: #323232;
   align-self: center;
   justify-self: start;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 @media only screen and (min-width: 768px) {
   html body .top-bar .left-nav a {
@@ -175,7 +175,7 @@ html body .top-bar .block-logo h4 {
   align-self: center;
   justify-self: center;
   font-weight: 400;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 @media only screen and (min-width: 2560px) {
   html body .top-bar .block-logo h4 {
@@ -190,12 +190,7 @@ html body .top-bar .right-nav i {
   align-self: center;
   justify-self: end;
   transition: opacity 0.5s ease-out;
-  font-size: 16px;
-}
-@media only screen and (min-width: 768px) {
-  html body .top-bar .right-nav i {
-    font-size: 18px;
-  }
+  font-size: 18px;
 }
 @media only screen and (min-width: 1366px) {
   html body .top-bar .right-nav i {
@@ -219,6 +214,7 @@ html body .bottom-bar {
   display: grid;
   grid-template-areas: "nav";
   padding: 0.5rem 1rem;
+  padding-top: 0;
 }
 @media only screen and (min-width: 768px) {
   html body .bottom-bar {
@@ -248,6 +244,17 @@ html body .bottom-bar .center-bar:before {
 }
 html body .bottom-bar .center-bar p {
   font-weight: 600;
+  font-size: 0.85rem;
+}
+@media only screen and (min-width: 1366px) {
+  html body .bottom-bar .center-bar p {
+    font-size: 1rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body .bottom-bar .center-bar p {
+    font-size: 1.15rem;
+  }
 }
 html body .bottom-bar .right-bar {
   grid-area: nav;
@@ -275,10 +282,17 @@ html body .bottom-bar .right-bar ul li a {
   }
 }
 html body header {
-  height: 100vh;
+  height: auto;
   display: grid;
   grid-template-areas: "head";
   z-index: 10;
+  padding: 4rem 0;
+}
+@media only screen and (min-width: 768px) {
+  html body header {
+    height: 100vh;
+    padding: unset;
+  }
 }
 html body header .loader {
   grid-area: head;
@@ -476,5 +490,73 @@ html body header .contents .block-gallery .wrapper .long {
   }
 }
 html body main {
-  padding: 5rem 3rem;
+  padding: 5rem 1rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main {
+    padding: 5rem 3rem;
+  }
+}
+html body main section .block-title h1 {
+  color: #AB986E;
+}
+html body main section .block-title h1 em {
+  font-weight: 400;
+  font-size: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main section .block-title h1 em {
+    font-size: 6rem;
+  }
+}
+html body main section .block-title h1 span {
+  color: #ffffff;
+  font-family: 'Alex Brush', cursive;
+  font-weight: 400;
+  font-size: 6rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main section .block-title h1 span {
+    font-size: 16rem;
+  }
+}
+html body main section .block-text p {
+  opacity: 0.7;
+  font-size: 0.8rem;
+}
+@media only screen and (min-width: 1366px) {
+  html body main section .block-text p {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main section .block-text p {
+    font-size: 1.3rem;
+  }
+}
+html body main #sect-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html body main #sect-about .block-title {
+  text-align: center;
+}
+html body main #sect-about .block-title h1 em {
+  position: relative;
+  left: 3rem;
+  z-index: 2;
+}
+html body main #sect-about .block-title h1 span {
+  position: relative;
+  right: 3rem;
+}
+html body main #sect-about .block-text {
+  width: 75%;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-about .block-text {
+    width: 50%;
+  }
 }

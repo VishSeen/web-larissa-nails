@@ -224,7 +224,7 @@ html {
                     color: @darkColor;
                     align-self: center;
                     justify-self: start;
-                    font-size: 0.7rem;
+                    font-size: 0.9rem;
                     @media @medium {
                         font-size: 0.85rem;
                     }
@@ -240,7 +240,7 @@ html {
                     align-self: center;
                     justify-self: center;
                     font-weight: @fontRegular;
-                    font-size: 1.7rem;
+                    font-size: 1.9rem;
                     @media @xxlarge {
                         font-size: 2.5rem;
                     }
@@ -256,10 +256,7 @@ html {
                     align-self: center;
                     justify-self: end;
                     transition: opacity 0.5s @easeOut;
-                    font-size: 16px;
-                    @media @medium {
-                        font-size: 18px;
-                    }
+                    font-size: 18px;
                     @media @large {
                         font-size: 20px;
                     }
@@ -282,13 +279,13 @@ html {
             display: grid;
             grid-template-areas: "nav";
             padding: 0.5rem 1rem;
+            padding-top: 0;
             @media @medium {
                 padding: 1.5rem 3rem;
             }
             @media @large {
                 padding: 2rem 3rem;
             }
-
             .center-bar {
                 grid-area: nav;
                 align-self: end;
@@ -306,6 +303,13 @@ html {
                 }
                 p {
                     font-weight: @fontSemiBold;
+                    font-size: 0.85rem;
+                    @media @large {
+                        font-size: 1rem;
+                    }
+                    @media @xxlarge {
+                        font-size: 1.15rem;
+                    }
                 }
             }
             .right-bar {
@@ -334,10 +338,15 @@ html {
         }
 
         header {
-            height: 100vh;
+            height: auto;
             display: grid;
             grid-template-areas: "head";
             z-index: 10;
+            padding: 4rem 0;
+            @media @medium {
+                height: 100vh;
+                padding: unset;
+            }
             .loader {
                 grid-area: head;
                 height: 100vh;
@@ -506,7 +515,73 @@ html {
 
 
         main {
-            padding: 5rem 3rem;
+            padding: 5rem 1rem;
+
+            @media @medium {
+                padding: 5rem 3rem;
+            }
+            section {
+                .block-title {
+                    h1 {
+                        color: @primaryDarkColor;
+                        em {
+                            font-weight: @fontRegular;
+                            font-size: 2rem;
+                            @media @medium {
+                                font-size: 6rem;
+                            }
+                        }
+                        span {
+                            color: @lightColor;
+                            font-family: @fontAlex;
+                            font-weight: @fontRegular;
+                            font-size: 6rem;
+                            @media @medium {
+                                font-size: 16rem;
+                            }
+                        }
+                    }
+                }
+                .block-text {
+                    p {
+                        opacity: 0.7;
+                        font-size: 0.8rem;
+                        @media @large {
+                            font-size: 1.2rem;
+                        }
+                        @media @xlarge {
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+
+            #sect-about {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .block-title {
+                    text-align: center;
+                    h1 {
+                        em {
+                            position: relative;
+                            left: 3rem;
+                            z-index: 2;
+                        }
+                        span {
+                            position: relative;
+                            right: 3rem;
+                        }
+                    }
+                }
+                .block-text {
+                    width: 75%;
+                    text-align: center;
+                    @media @medium {
+                        width: 50%;
+                    }
+                }
+            }
         }
     }
 }
