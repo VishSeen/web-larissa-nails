@@ -47,6 +47,12 @@
 .crawl-down.down {
   bottom: 0 !important;
 }
+.scale {
+  transform: scale(0);
+}
+.scale.scale-up {
+  transform: scale(1) !important;
+}
 .hide {
   display: none !important;
 }
