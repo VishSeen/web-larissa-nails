@@ -488,13 +488,11 @@ html body header .contents .block-gallery .wrapper .img {
   width: 10rem;
   margin: 0.3rem;
   background-size: cover;
-  transition: all 1s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   html body header .contents .block-gallery .wrapper .img {
     height: 7rem;
     width: 7rem;
-    transition: all 1s ease-in-out;
   }
 }
 @media only screen and (min-width: 1366px) {
@@ -502,7 +500,6 @@ html body header .contents .block-gallery .wrapper .img {
     height: 10rem;
     width: 10rem;
     margin: 0.5rem;
-    transition: all 1s ease-in-out;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -510,7 +507,6 @@ html body header .contents .block-gallery .wrapper .img {
     height: 14rem;
     width: 14rem;
     margin: 1rem;
-    transition: all 1s ease-in-out;
   }
 }
 @media only screen and (min-width: 2560px) {
@@ -518,7 +514,6 @@ html body header .contents .block-gallery .wrapper .img {
     height: 18rem;
     width: 18rem;
     margin: 2rem;
-    transition: all 1s ease-in-out;
   }
 }
 html body header .contents .block-gallery .wrapper .img:hover {
