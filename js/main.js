@@ -92,11 +92,11 @@ function introAnimation() {
             const headerImg = document.querySelectorAll('header .block-gallery .wrapper .img:nth-child(' + i + ')')[0];
             headerImg.classList.add(scaleUp);
         }
-    }, 4800);
+    }, 5500);
 
     // 4. display main
     setTimeout(function() {
         const main = document.querySelectorAll('main')[0];
         main.style.display = 'block';
-    }, 8000);
+    }, 7000);
 }
