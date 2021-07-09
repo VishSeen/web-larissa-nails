@@ -92,7 +92,7 @@ function introAnimation() {
             const headerImg = document.querySelectorAll('header .block-gallery img:nth-child(' + i + ')')[0];
             headerImg.classList.add(scaleUp);
         }
-     4800);
+    }, 4800);
 
     // 4. display main
     setTimeout(function() {
