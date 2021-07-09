@@ -88,7 +88,7 @@ function introAnimation() {
         const headerBlockGallery = document.querySelectorAll('header .block-gallery')[0];
         headerBlockGallery.classList.remove(hide);
         
-        for(et i = 1; i < 6; i++) {
+        for(let i = 1; i < 6; i++) {
             const headerImg = document.querySelectorAll('header .block-gallery img:nth-child(' + i + ')')[0];
             headerImg.classList.add(scaleUp);
         }
