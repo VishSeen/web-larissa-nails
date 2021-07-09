@@ -89,7 +89,7 @@ function introAnimation() {
         headerBlockGallery.classList.remove(hide);
         
         for(let i = 1; i < 6; i++) {
-            const headerImg = document.querySelectorAll('header .block-gallery .img:nth-child(' + i + ')')[0];
+            const headerImg = document.querySelectorAll('header .block-gallery .wrapper .img:nth-child(' + i + ')')[0];
             headerImg.classList.add(scaleUp);
         }
     }, 4800);
