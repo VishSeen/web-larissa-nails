@@ -78,11 +78,48 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // ANIMATION CLASSES :
-.bar.expand {
-    transform: translateY(0%) !important;
+.bar {
+    .expand {
+        transform: translateY(0%) !important;
+    }
+}
+
+.fade {
+    opacity: 0;
+
+    &.fade-in {
+        opacity: 1 !important;
+    }
+}
+
+.slide {
+    transform: translateY(-100%);
+    &.slide-in {
+        transform: translateY(0%) !important;
+    }
+}
+
+.crawl-up {
+    top: 5rem;
+    &.up {
+        top: 0 !important;
+    }
+}
+.crawl-down {
+    bottom: 10rem;
+    &.down {
+        bottom: 0 !important;
+    }
 }
 
 
+
+.hide {
+    display: none !important;
+}
+
+
+////////////////////////////
 // KEYFRAMES :
 @keyframes scrolled {
     0% {
@@ -145,7 +182,6 @@ html {
 
     body {
         background-color: @primaryColor;
-
         .splash-screen {
             position: fixed;
             top: 0;
@@ -158,6 +194,7 @@ html {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/hero-image.jpg');
             background-size: cover;
             background-position: center;
+            transition: all 0.7s @easeIn;
             .block-content {
                 border: solid @primaryColor;
                 border-width: 2px;
@@ -190,9 +227,11 @@ html {
                     font-size: 5rem;
                     font-weight: @fontRegular;
                     font-family: @fontParisienne;
-                    transition: all 3s @easeInOut;
+                    transition: all 1.2s @easeInOut;
+                    letter-spacing: 5px;
                     @media @medium {
                         font-size: 7rem;
+                        letter-spacing: 10px;
                     }
                     @media @large {
                         font-size: 9rem;
@@ -210,7 +249,7 @@ html {
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
             padding: 0.5rem 1rem;
-            background-color: @primaryColor;
+            transition: all 1s @easeIn;
             @media @medium {
                 padding: 1.5rem 3rem .5rem;
             }
@@ -219,17 +258,22 @@ html {
             }
 
             .left-nav {
+                transition: all 0.5s @easeInOut;
                 a {
                     font-weight: @fontMedium;
                     color: @darkColor;
                     align-self: center;
                     justify-self: start;
                     font-size: 0.9rem;
+                    transition: all 0.5s @easeOut;
                     @media @medium {
                         font-size: 0.85rem;
                     }
                     @media @large {
                         font-size: 1rem;
+                    }
+                    &:hover {
+                        opacity: 0.5;
                     }
                 }
             }
@@ -241,8 +285,13 @@ html {
                     justify-self: center;
                     font-weight: @fontRegular;
                     font-size: 1.9rem;
+                    transition: all 0.4s @easeOut;
+                    overflow: hidden;
                     @media @xxlarge {
                         font-size: 2.5rem;
+                    }
+                    &:hover {
+                        letter-spacing: 2px;
                     }
                     a {
                         color: @darkColor;
@@ -252,10 +301,13 @@ html {
             }
 
             .right-nav {
+                transition: all 0.5s @easeInOut;
                 i {
+                    padding: 1rem;
+                    padding-right: 0;
                     align-self: center;
                     justify-self: end;
-                    transition: opacity 0.5s @easeOut;
+                    transition: all 0.5s @easeOut;
                     font-size: 18px;
                     @media @large {
                         font-size: 20px;
@@ -278,7 +330,7 @@ html {
             z-index: 50;
             display: grid;
             grid-template-areas: "nav";
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1rem 1.5rem;
             padding-top: 0;
             @media @medium {
                 padding: 1.5rem 3rem;
@@ -293,6 +345,7 @@ html {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                transition: all 0.5s @easeInOut;
                 &:before {
                     content: "";
                     height: 15px;
@@ -312,10 +365,11 @@ html {
                     }
                 }
             }
-            .right-bar {
+            .right-nav {
                 grid-area: nav;
                 align-self: end;
                 justify-self: end;
+                transition: all 0.5s @easeInOut;
                 ul {
                     li {
                         display: inline-block;
@@ -352,20 +406,28 @@ html {
                 height: 100vh;
                 width: 100%;
                 display: flex;
-                // z-index: 10;
                 .bar {
                     background-color: @primaryColor;
                     width: 25%;
-                    transition: transform 1.5s @easeIn;
+                    transition: transform 0.8s @easeIn;
                     // transform: translateY(-100%);
                     &:nth-child(1) {
-                        transition-delay: 375ms;
+                        transition-delay: 0;
+                        @media @medium {
+                            transition-delay: 425ms;
+                        }
                     }
                     &:nth-child(2) {
-                        transition-delay: 250ms;
+                        transition-delay: 0;
+                        @media @medium {
+                            transition-delay: 275ms;
+                        }
                     }
                     &:nth-child(3) {
-                        transition-delay: 125ms;
+                        transition-delay: 0;
+                        @media @medium {
+                            transition-delay: 125ms;
+                        }
                     }
                     &:nth-child(4) {}
                 }
@@ -379,6 +441,7 @@ html {
                 .block-intro {
                     text-align: center;
                     h1 {
+                        overflow: hidden;
                         font-weight: @fontBold;
                         font-size: 1.2rem;
                         @media @medium {
@@ -390,22 +453,30 @@ html {
                         @media @xlarge {
                             font-size: 2.5rem;
                         }
+                        span {
+                            position: relative;
+                            overflow: hidden;
+                            transition: all 1s @easeInOut;
+                        }
                     }
-                    p {
-                        margin-top: 1rem;
-                        opacity: 0.6;
-                        font-size: 0.7rem;
-                        @media @medium {
-                            font-size:0.8rem;
-                        }
-                        @media @large {
-                            font-size: 1rem;
-                        }
-                        @media @xlarge {
-                            font-size: 1.2rem;
-                        }
-                        @media @xxlarge {
-                            font-size: 1.5rem;
+                    div {
+                        transition: all 1.5s @easeInOut;
+                        p {
+                            margin-top: 1rem;
+                            font-size: 0.7rem;
+                            opacity: 0.6;
+                            @media @medium {
+                                font-size:0.8rem;
+                            }
+                            @media @large {
+                                font-size: 1rem;
+                            }
+                            @media @xlarge {
+                                font-size: 1.2rem;
+                            }
+                            @media @xxlarge {
+                                font-size: 1.5rem;
+                            }
                         }
                     }
                 }
@@ -515,70 +586,186 @@ html {
 
 
         main {
-            padding: 5rem 1rem;
-
-            @media @medium {
-                padding: 5rem 3rem;
+            display: none;
+            padding: 0;
+            @media @large {
+                padding: 3rem;
             }
             section {
-                .block-title {
-                    h1 {
-                        color: @primaryDarkColor;
-                        em {
-                            font-weight: @fontRegular;
-                            font-size: 2rem;
-                            @media @medium {
+                padding: 3rem 0;
+                margin: 2rem 0;
+                @media @medium {
+                    padding: 4rem 0;
+                }
+                @media @large {
+                    padding: 8rem 0;
+                }
+                &.halfed {
+                    display: grid;
+                    grid-template-areas: "text"
+                                         "photo";
+                    @media @large {
+                        grid-template-areas: "text photo";
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+                &.inversed {
+                    display: grid;
+                    grid-template-areas: "text"
+                                         "photo";
+                    @media @large {
+                        grid-template-areas: "photo text";
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                .block-content {
+                    grid-area: text;
+                    .block-title {
+                        text-align: center;
+                        @media @large {
+                            text-align: left;
+                        }
+                        h1 {
+                            padding: 1rem;
+                            color: @primaryDarkColor;
+                            em {
+                                font-weight: @fontRegular;
+                                font-size: 2rem;
+                                z-index: 2;
+                                top: 1rem;
+                                @media @medium {
+                                    font-size: 3rem;
+                                }
+                                @media @large {
+                                    font-size: 5rem;
+                                }
+                                @media @xlarge {
+                                    font-size: 6rem;
+                                }
+                            }
+                            span {
+                                color: @lightColor;
+                                font-family: @fontAlex;
+                                font-weight: @fontRegular;
                                 font-size: 6rem;
+                                bottom: 1rem;
+                                left: 0;
+                                @media @large {
+                                    font-size: 10rem;
+                                }
+                                @media @xlarge {
+                                    font-size: 12rem;
+                                }
+                                @media @xxlarge {
+                                    font-size: 16rem;
+                                }
                             }
                         }
-                        span {
-                            color: @lightColor;
-                            font-family: @fontAlex;
-                            font-weight: @fontRegular;
-                            font-size: 6rem;
-                            @media @medium {
-                                font-size: 16rem;
+                    }
+                    .block-text {
+                        text-align: center;
+                        @media @large {
+                            text-align: left;
+                        }
+                        p {
+                            opacity: 0.7;
+                            font-size: 0.8rem;
+                            @media @large {
+                                font-size: 1.2rem;
+                            }
+                            @media @xlarge {
+                                font-size: 1.3rem;
                             }
                         }
                     }
                 }
-                .block-text {
-                    p {
-                        opacity: 0.7;
-                        font-size: 0.8rem;
-                        @media @large {
-                            font-size: 1.2rem;
+
+                .block-photo {
+                    grid-area: photo;
+                }
+            }
+
+
+            #sect-about {
+                display: grid;
+                grid-template-areas: "text";
+                .block-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .block-title {
+                        text-align: center;
+                        h1 {
+                            padding: 0;
+                            em {
+                                position: relative;
+                                left: 3rem;
+                                top: 0;
+                                @media @large {
+                                    left: 3rem;
+                                }
+                            }
+                            span {
+                                position: relative;
+                                right: 3rem;
+                                bottom: 0;
+                                left: unset;
+                                @media @large {
+                                    right: 3rem;
+                                }
+                            }
                         }
-                        @media @xlarge {
-                            font-size: 1.3rem;
+                    }
+                    .block-text {
+                        width: 75%;
+                        @media @large {
+                            width: 50%;
+                        }
+                        p {
+                           text-align: center;
                         }
                     }
                 }
             }
 
-            #sect-about {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .block-title {
-                    text-align: center;
-                    h1 {
-                        em {
-                            position: relative;
-                            left: 3rem;
-                            z-index: 2;
-                        }
-                        span {
-                            position: relative;
-                            right: 3rem;
+
+            #sect-gallery {
+                .block-content {
+                    .block-title {
+                        h1 {
+                            em {
+                                position: relative;
+                                top: 3rem;
+                                left: 0;
+                                @media @medium {
+                                    top: 0;
+                                    left: 5rem;
+                                }
+                                @media @large {
+                                    top: 3rem;
+                                    left: unset;
+                                }
+                            }
+                            span {
+                                position: relative;
+                                bottom: 2rem;
+                                right: 3rem;
+                                @media @medium {
+                                    bottom: 0;
+                                    right: 5rem;
+                                    left: unset;
+                                }
+                                @media @large {
+                                    bottom: 3rem;
+                                    left: 7rem;
+                                }
+                            }
                         }
                     }
-                }
-                .block-text {
-                    width: 75%;
-                    text-align: center;
-                    @media @medium {
-                        width: 50%;
+                    .block-text {
+                        @media @large {
+                        }
                     }
                 }
             }

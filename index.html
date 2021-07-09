@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <!-- <div class="splash-screen">
+    <div class="splash-screen fade">
         <div class="block-content">
             <h5>
                 NAILS BY
@@ -23,34 +23,34 @@
                 Larissa
             </h1>
         </div>
-    </div> -->
+    </div>
 
 
-    <div class="top-bar">
-        <div class="left-nav grid">
+    <div class="top-bar hide">
+        <div class="left-nav grid fade">
             <a href="#">Gallery</a>
         </div>
 
         <div class="block-logo grid">
-            <h4>
+            <h4 class="fade">
                 <a href="index.html">Larissa</a>
             </h4>
         </div>
 
-        <div class="right-nav grid">
+        <div class="right-nav grid fade">
             <i class="material-icons md-24">grid_view</i>
         </div>
     </div>
 
 
-    <div class="bottom-bar">
-        <div class="center-bar">
+    <div class="bottom-bar hide">
+        <div class="center-bar fade">
             <p>
                 scroll
             </p>
         </div>
 
-        <div class="right-bar">
+        <div class="right-nav fade">
             <ul>
                 <li>
                     <a href="">fb</a>
@@ -68,30 +68,32 @@
 
     <header>
         <div class="loader">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+            <div class="bar slide"></div>
+            <div class="bar slide"></div>
+            <div class="bar slide"></div>
+            <div class="bar slide"></div>
         </div>
 
         <div class="contents">
             <div class="block-intro">
                 <h1>
-                    <span>
+                    <span class="crawl-down">
                         GLITTERY <em>NAILS</em> MATCHING
                     </span>
                     <br>
-                    <span>
+                    <span class="crawl-up">
                         YOUR POSITIVE ENERGY
                     </span>
                 </h1>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit. Adipiscing laoreet proin quis.
-                </p>
+                <div class="fade">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur <br> adipiscing elit. Adipiscing laoreet proin quis.
+                    </p>
+                </div>
             </div>
 
-            <div class="block-gallery">
+            <div class="block-gallery hide">
                 <div class="wrapper">
                     <div class="img"></div>
                     <div class="img long"></div>
@@ -109,23 +111,58 @@
     <!--/////////////////////////////////////////////////////////////////////////////////////////-->
     <main>
         <section id="sect-about">
-            <div class="block-title">
-                <h1>
-                    <em>ABOUT</em>
-                    <span>Us</span>
-                </h1>
+            <div class="block-content">
+                <div class="block-title">
+                    <h1>
+                        <em>ABOUT</em>
+                        <span>Us</span>
+                    </h1>
+                </div>
+
+                <div class="block-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at
+                        <br> consequat vitae magnis auctor at velit, integer vitae. Sed lobortis
+                        <br> luctus ut risus neque commodo nam. Lectus magna gravida
+                        <br> suscipit metus, feugiat. Massa orci lobortis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="halfed" id="sect-gallery">
+            <div class="block-content">
+                <div class="block-title">
+                    <h1>
+                        <em>OUR BEST</em>
+                        <span>Gallery</span>
+                    </h1>
+                </div>
+
+                <div class="block-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at
+                        <br> consequat vitae magnis auctor at velit, integer vitae. Sed lobortis
+                        <br> luctus ut risus neque commodo nam. Lectus magna gravida
+                        <br> suscipit metus, feugiat. Massa orci lobortis.
+                    </p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at
+                        <br> consequat vitae magnis auctor at velit, integer vitae.
+                        <br> suscipit metus, feugiat. Massa orci lobortis.
+                    </p>
+                </div>
             </div>
 
-            <div class="block-text">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at
-                    <br> consequat vitae magnis auctor at velit, integer vitae. Sed lobortis
-                    <br> luctus ut risus neque commodo nam. Lectus magna gravida
-                    <br> suscipit metus, feugiat. Massa orci lobortis.
-                </p>
+            <div class="block-photo">
+
             </div>
         </section>
     </main>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

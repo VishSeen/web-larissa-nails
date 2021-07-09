@@ -20,8 +20,35 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-.bar.expand {
+.bar .expand {
   transform: translateY(0%) !important;
+}
+.fade {
+  opacity: 0;
+}
+.fade.fade-in {
+  opacity: 1 !important;
+}
+.slide {
+  transform: translateY(-100%);
+}
+.slide.slide-in {
+  transform: translateY(0%) !important;
+}
+.crawl-up {
+  top: 5rem;
+}
+.crawl-up.up {
+  top: 0 !important;
+}
+.crawl-down {
+  bottom: 10rem;
+}
+.crawl-down.down {
+  bottom: 0 !important;
+}
+.hide {
+  display: none !important;
 }
 @keyframes scrolled {
   0% {
@@ -79,6 +106,7 @@ html body .splash-screen {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/hero-image.jpg');
   background-size: cover;
   background-position: center;
+  transition: all 0.7s ease-in;
 }
 html body .splash-screen .block-content {
   border: solid #EFE6D5;
@@ -120,11 +148,13 @@ html body .splash-screen .block-content h1 {
   font-size: 5rem;
   font-weight: 400;
   font-family: 'Parisienne', cursive;
-  transition: all 3s ease-in-out;
+  transition: all 1.2s ease-in-out;
+  letter-spacing: 5px;
 }
 @media only screen and (min-width: 768px) {
   html body .splash-screen .block-content h1 {
     font-size: 7rem;
+    letter-spacing: 10px;
   }
 }
 @media only screen and (min-width: 1366px) {
@@ -141,7 +171,7 @@ html body .top-bar {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   padding: 0.5rem 1rem;
-  background-color: #EFE6D5;
+  transition: all 1s ease-in;
 }
 @media only screen and (min-width: 768px) {
   html body .top-bar {
@@ -151,12 +181,16 @@ html body .top-bar {
 html body .top-bar .grid {
   display: grid;
 }
+html body .top-bar .left-nav {
+  transition: all 0.5s ease-in-out;
+}
 html body .top-bar .left-nav a {
   font-weight: 500;
   color: #323232;
   align-self: center;
   justify-self: start;
   font-size: 0.9rem;
+  transition: all 0.5s ease-out;
 }
 @media only screen and (min-width: 768px) {
   html body .top-bar .left-nav a {
@@ -168,6 +202,9 @@ html body .top-bar .left-nav a {
     font-size: 1rem;
   }
 }
+html body .top-bar .left-nav a:hover {
+  opacity: 0.5;
+}
 html body .top-bar .block-logo {
   font-family: 'Parisienne', cursive;
 }
@@ -176,20 +213,30 @@ html body .top-bar .block-logo h4 {
   justify-self: center;
   font-weight: 400;
   font-size: 1.9rem;
+  transition: all 0.4s ease-out;
+  overflow: hidden;
 }
 @media only screen and (min-width: 2560px) {
   html body .top-bar .block-logo h4 {
     font-size: 2.5rem;
   }
 }
+html body .top-bar .block-logo h4:hover {
+  letter-spacing: 2px;
+}
 html body .top-bar .block-logo h4 a {
   color: #323232;
   text-decoration: none;
 }
+html body .top-bar .right-nav {
+  transition: all 0.5s ease-in-out;
+}
 html body .top-bar .right-nav i {
+  padding: 1rem;
+  padding-right: 0;
   align-self: center;
   justify-self: end;
-  transition: opacity 0.5s ease-out;
+  transition: all 0.5s ease-out;
   font-size: 18px;
 }
 @media only screen and (min-width: 1366px) {
@@ -213,7 +260,7 @@ html body .bottom-bar {
   z-index: 50;
   display: grid;
   grid-template-areas: "nav";
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 1.5rem;
   padding-top: 0;
 }
 @media only screen and (min-width: 768px) {
@@ -233,6 +280,7 @@ html body .bottom-bar .center-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 html body .bottom-bar .center-bar:before {
   content: "";
@@ -256,15 +304,16 @@ html body .bottom-bar .center-bar p {
     font-size: 1.15rem;
   }
 }
-html body .bottom-bar .right-bar {
+html body .bottom-bar .right-nav {
   grid-area: nav;
   align-self: end;
   justify-self: end;
+  transition: all 0.5s ease-in-out;
 }
-html body .bottom-bar .right-bar ul li {
+html body .bottom-bar .right-nav ul li {
   display: inline-block;
 }
-html body .bottom-bar .right-bar ul li a {
+html body .bottom-bar .right-nav ul li a {
   color: #323232;
   font-weight: 600;
   font-size: 0.8rem;
@@ -272,12 +321,12 @@ html body .bottom-bar .right-bar ul li a {
   padding-right: 0;
 }
 @media only screen and (min-width: 1366px) {
-  html body .bottom-bar .right-bar ul li a {
+  html body .bottom-bar .right-nav ul li a {
     font-size: 1rem;
   }
 }
 @media only screen and (min-width: 2560px) {
-  html body .bottom-bar .right-bar ul li a {
+  html body .bottom-bar .right-nav ul li a {
     font-size: 1.15rem;
   }
 }
@@ -303,16 +352,31 @@ html body header .loader {
 html body header .loader .bar {
   background-color: #EFE6D5;
   width: 25%;
-  transition: transform 1.5s ease-in;
+  transition: transform 0.8s ease-in;
 }
 html body header .loader .bar:nth-child(1) {
-  transition-delay: 375ms;
+  transition-delay: 0;
+}
+@media only screen and (min-width: 768px) {
+  html body header .loader .bar:nth-child(1) {
+    transition-delay: 425ms;
+  }
 }
 html body header .loader .bar:nth-child(2) {
-  transition-delay: 250ms;
+  transition-delay: 0;
+}
+@media only screen and (min-width: 768px) {
+  html body header .loader .bar:nth-child(2) {
+    transition-delay: 275ms;
+  }
 }
 html body header .loader .bar:nth-child(3) {
-  transition-delay: 125ms;
+  transition-delay: 0;
+}
+@media only screen and (min-width: 768px) {
+  html body header .loader .bar:nth-child(3) {
+    transition-delay: 125ms;
+  }
 }
 html body header .contents {
   grid-area: head;
@@ -324,6 +388,7 @@ html body header .contents .block-intro {
   text-align: center;
 }
 html body header .contents .block-intro h1 {
+  overflow: hidden;
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -342,28 +407,36 @@ html body header .contents .block-intro h1 {
     font-size: 2.5rem;
   }
 }
-html body header .contents .block-intro p {
+html body header .contents .block-intro h1 span {
+  position: relative;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+html body header .contents .block-intro div {
+  transition: all 1.5s ease-in-out;
+}
+html body header .contents .block-intro div p {
   margin-top: 1rem;
-  opacity: 0.6;
   font-size: 0.7rem;
+  opacity: 0.6;
 }
 @media only screen and (min-width: 768px) {
-  html body header .contents .block-intro p {
+  html body header .contents .block-intro div p {
     font-size: 0.8rem;
   }
 }
 @media only screen and (min-width: 1366px) {
-  html body header .contents .block-intro p {
+  html body header .contents .block-intro div p {
     font-size: 1rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  html body header .contents .block-intro p {
+  html body header .contents .block-intro div p {
     font-size: 1.2rem;
   }
 }
 @media only screen and (min-width: 2560px) {
-  html body header .contents .block-intro p {
+  html body header .contents .block-intro div p {
     font-size: 1.5rem;
   }
 }
@@ -490,73 +563,211 @@ html body header .contents .block-gallery .wrapper .long {
   }
 }
 html body main {
-  padding: 5rem 1rem;
+  display: none;
+  padding: 0;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1366px) {
   html body main {
-    padding: 5rem 3rem;
+    padding: 3rem;
   }
 }
-html body main section .block-title h1 {
-  color: #AB986E;
-}
-html body main section .block-title h1 em {
-  font-weight: 400;
-  font-size: 2rem;
+html body main section {
+  padding: 3rem 0;
+  margin: 2rem 0;
 }
 @media only screen and (min-width: 768px) {
-  html body main section .block-title h1 em {
+  html body main section {
+    padding: 4rem 0;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main section {
+    padding: 8rem 0;
+  }
+}
+html body main section.halfed {
+  display: grid;
+  grid-template-areas: "text" "photo";
+}
+@media only screen and (min-width: 1366px) {
+  html body main section.halfed {
+    grid-template-areas: "text photo";
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+html body main section.inversed {
+  display: grid;
+  grid-template-areas: "text" "photo";
+}
+@media only screen and (min-width: 1366px) {
+  html body main section.inversed {
+    grid-template-areas: "photo text";
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+html body main section .block-content {
+  grid-area: text;
+}
+html body main section .block-content .block-title {
+  text-align: center;
+}
+@media only screen and (min-width: 1366px) {
+  html body main section .block-content .block-title {
+    text-align: left;
+  }
+}
+html body main section .block-content .block-title h1 {
+  padding: 1rem;
+  color: #AB986E;
+}
+html body main section .block-content .block-title h1 em {
+  font-weight: 400;
+  font-size: 2rem;
+  z-index: 2;
+  top: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main section .block-content .block-title h1 em {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main section .block-content .block-title h1 em {
+    font-size: 5rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main section .block-content .block-title h1 em {
     font-size: 6rem;
   }
 }
-html body main section .block-title h1 span {
+html body main section .block-content .block-title h1 span {
   color: #ffffff;
   font-family: 'Alex Brush', cursive;
   font-weight: 400;
   font-size: 6rem;
+  bottom: 1rem;
+  left: 0;
 }
-@media only screen and (min-width: 768px) {
-  html body main section .block-title h1 span {
+@media only screen and (min-width: 1366px) {
+  html body main section .block-content .block-title h1 span {
+    font-size: 10rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main section .block-content .block-title h1 span {
+    font-size: 12rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main section .block-content .block-title h1 span {
     font-size: 16rem;
   }
 }
-html body main section .block-text p {
+html body main section .block-content .block-text {
+  text-align: center;
+}
+@media only screen and (min-width: 1366px) {
+  html body main section .block-content .block-text {
+    text-align: left;
+  }
+}
+html body main section .block-content .block-text p {
   opacity: 0.7;
   font-size: 0.8rem;
 }
 @media only screen and (min-width: 1366px) {
-  html body main section .block-text p {
+  html body main section .block-content .block-text p {
     font-size: 1.2rem;
   }
 }
 @media only screen and (min-width: 1440px) {
-  html body main section .block-text p {
+  html body main section .block-content .block-text p {
     font-size: 1.3rem;
   }
 }
+html body main section .block-photo {
+  grid-area: photo;
+}
 html body main #sect-about {
+  display: grid;
+  grid-template-areas: "text";
+}
+html body main #sect-about .block-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-html body main #sect-about .block-title {
+html body main #sect-about .block-content .block-title {
   text-align: center;
 }
-html body main #sect-about .block-title h1 em {
+html body main #sect-about .block-content .block-title h1 {
+  padding: 0;
+}
+html body main #sect-about .block-content .block-title h1 em {
   position: relative;
   left: 3rem;
-  z-index: 2;
+  top: 0;
 }
-html body main #sect-about .block-title h1 span {
+@media only screen and (min-width: 1366px) {
+  html body main #sect-about .block-content .block-title h1 em {
+    left: 3rem;
+  }
+}
+html body main #sect-about .block-content .block-title h1 span {
   position: relative;
   right: 3rem;
+  bottom: 0;
+  left: unset;
 }
-html body main #sect-about .block-text {
+@media only screen and (min-width: 1366px) {
+  html body main #sect-about .block-content .block-title h1 span {
+    right: 3rem;
+  }
+}
+html body main #sect-about .block-content .block-text {
   width: 75%;
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-about .block-content .block-text {
+    width: 50%;
+  }
+}
+html body main #sect-about .block-content .block-text p {
   text-align: center;
 }
+html body main #sect-gallery .block-content .block-title h1 em {
+  position: relative;
+  top: 3rem;
+  left: 0;
+}
 @media only screen and (min-width: 768px) {
-  html body main #sect-about .block-text {
-    width: 50%;
+  html body main #sect-gallery .block-content .block-title h1 em {
+    top: 0;
+    left: 5rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-gallery .block-content .block-title h1 em {
+    top: 3rem;
+    left: unset;
+  }
+}
+html body main #sect-gallery .block-content .block-title h1 span {
+  position: relative;
+  bottom: 2rem;
+  right: 3rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-gallery .block-content .block-title h1 span {
+    bottom: 0;
+    right: 5rem;
+    left: unset;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-gallery .block-content .block-title h1 span {
+    bottom: 3rem;
+    left: 7rem;
   }
 }
