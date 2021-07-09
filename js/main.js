@@ -5,9 +5,9 @@ const hide = 'hide';
 
 const crawlUp = 'up';
 const crawlDown = 'down';
+const scaleUp = 'scale-up';
 const fadeIn = 'fade-in';
 const slideIn = 'slide-in';
-
 
 
 ////////////////////////////////////////////////////////////
@@ -84,6 +84,15 @@ function introAnimation() {
         headerP.classList.add(fadeIn);
     }, 4700);
 
+    setTimeout(function() {
+        const headerBlockGallery = document.querySelectorAll('header .block-gallery')[0];
+        headerBlockGallery.classList.remove(hide);
+        
+        for(et i = 1; i < 6; i++) {
+            const headerImg = document.querySelectorAll('header .block-gallery img:nth-child(' + i + ')')[0];
+            headerImg.classList.add(scaleUp);
+        }
+     4800);
 
     // 4. display main
     setTimeout(function() {
