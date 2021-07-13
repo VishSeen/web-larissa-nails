@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=PT+Serif:ital,wght@1,400;1,700&family=Parisienne&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=PT+Serif:ital,wght@0,700;1,400;1,700&family=Parisienne&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Nails by Larissa</title>
 </head>
 
@@ -66,8 +66,11 @@
     </div>
 
 
+    <!--/////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- HEADER CONTENT -->
+    <!--/////////////////////////////////////////////////////////////////////////////////////////-->
     <header>
-        <div class="loader">
+        <div class="loader" id="butter">
             <div class="bar slide"></div>
             <div class="bar slide"></div>
             <div class="bar slide"></div>
@@ -93,13 +96,13 @@
                 </div>
             </div>
 
-            <div class="block-gallery hide">
+            <div class="block-gallery fade">
                 <div class="wrapper">
-                    <div class="img"></div>
-                    <div class="img long"></div>
-                    <div class="img"></div>
-                    <div class="img long"></div>
-                    <div class="img"></div>
+                    <div class="img fade scale"></div>
+                    <div class="img long fade scale"></div>
+                    <div class="img fade scale"></div>
+                    <div class="img long fade scale"></div>
+                    <div class="img fade scale"></div>
                 </div>
             </div>
         </div>
@@ -109,7 +112,7 @@
     <!--/////////////////////////////////////////////////////////////////////////////////////////-->
     <!-- MAIN CONTENT -->
     <!--/////////////////////////////////////////////////////////////////////////////////////////-->
-    <main>
+    <main id="butter">
         <section id="sect-about">
             <div class="block-content">
                 <div class="block-title">
@@ -126,6 +129,10 @@
                         <br> luctus ut risus neque commodo nam. Lectus magna gravida
                         <br> suscipit metus, feugiat. Massa orci lobortis.
                     </p>
+                </div>
+
+                <div class="block-button">
+                    <a href="#footer">contact us</a>
                 </div>
             </div>
         </section>
@@ -160,8 +167,77 @@
 
             </div>
         </section>
+
+
+
+        <section id="sect-products">
+            <div class="block-content">
+                <div class="block-title">
+                    <h1>
+                        <em>PRODUCTS</em>
+                        <span>Used</span>
+                    </h1>
+                </div>
+            </div>
+
+            <div class="block-halfed">
+                <div class="block-gallery">
+                    <div class="wrapper">
+                        <div class="img"></div>
+                        <div class="img"></div>
+                        <div class="img"></div>
+                    </div>
+                </div>
+
+                <div class="block-photo">
+                    <div class="block-content">
+                        <li>
+                            <p>
+                                <span>01. </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at consequat vitae magnis auctor at velit, integer vitae. Sed lobortis luctus ut risus neque commodo nam.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                <span>02. </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at consequat vitae magnis auctor at velit, integer vitae. Sed lobortis luctus ut risus neque commodo nam.
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                <span>03. </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at consequat vitae magnis auctor at velit, integer vitae. Sed lobortis luctus ut risus neque commodo nam.
+                            </p>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+
+    <!--/////////////////////////////////////////////////////////////////////////////////////////-->
+    <!-- FOOTER CONTENT -->
+    <!--/////////////////////////////////////////////////////////////////////////////////////////-->
+    <footer id="footer">
+        <div class="block-content">
+            <div class="block-title">
+                <h1>
+                    <em>CONTACT</em>
+                    <span>Us</span>
+                </h1>
+            </div>
+
+            <div class="block-text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna at
+                    <br> consequat vitae magnis auctor at velit, integer vitae. Sed lobortis
+                    <br> luctus ut risus neque commodo nam. Lectus magna gravida
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/butter.js"></script>
     <script src="js/main.js"></script>
 </body>
 

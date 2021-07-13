@@ -47,6 +47,12 @@
 .crawl-down.down {
   bottom: 0 !important;
 }
+.scale {
+  transform: scale(0.6);
+}
+.scale.scale-up {
+  transform: scale(1);
+}
 .hide {
   display: none !important;
 }
@@ -59,6 +65,17 @@
   }
   100% {
     height: 25px;
+  }
+}
+@keyframes glitter {
+  0% {
+    transform: scale(0.98);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.98);
   }
 }
 ::-webkit-scrollbar {
@@ -87,9 +104,131 @@ h1 {
 }
 p {
   font-weight: 300;
+  font-size: 0.8rem;
+}
+@media only screen and (min-width: 1366px) {
+  p {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  p {
+    font-size: 1.3rem;
+    white-space: unset;
+  }
+}
+.img {
+  transition: transform 0.6s ease-in-out;
+}
+.img:hover {
+  cursor: pointer;
+  transform: scale(0.985);
+}
+.block-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.block-button a {
+  background-color: #AB986E;
+  color: #ffffff;
+  font-size: 0.7rem;
+  padding: 0.5rem 1.5rem;
+  filter: drop-shadow(0px 1px 14px rgba(0, 0, 0, 0.25));
+  transition: all 0.5s ease;
+}
+.block-button a:hover {
+  filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25));
+}
+@media only screen and (min-width: 768px) {
+  .block-button a {
+    padding: 0.7rem 1.5rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  .block-button a {
+    font-size: 0.8rem;
+    padding: 1rem 2.5rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .block-button a {
+    font-size: 1rem;
+  }
+}
+.block-title {
+  text-align: center;
+}
+@media only screen and (min-width: 1366px) {
+  .block-title {
+    text-align: left;
+  }
+}
+.block-title h1 {
+  padding: 1rem;
+  color: #AB986E;
+}
+.block-title h1 em {
+  font-weight: 400;
+  font-size: 2rem;
+  z-index: 2;
+  top: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  .block-title h1 em {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .block-title h1 em {
+    font-size: 5rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .block-title h1 em {
+    font-size: 6rem;
+  }
+}
+.block-title h1 span {
+  color: #ffffff;
+  font-family: 'Alex Brush', cursive;
+  font-weight: 400;
+  font-size: 6rem;
+  bottom: 1rem;
+  left: 0;
+}
+@media only screen and (min-width: 1366px) {
+  .block-title h1 span {
+    font-size: 9rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .block-title h1 span {
+    font-size: 12rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .block-title h1 span {
+    font-size: 16rem;
+  }
+}
+.block-text {
+  text-align: center;
+}
+@media only screen and (min-width: 1366px) {
+  .block-text {
+    text-align: left;
+  }
+}
+.block-text p {
+  opacity: 0.7;
+}
+.block-gallery {
+  display: grid;
 }
 html {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 html body {
   background-color: #EFE6D5;
@@ -103,7 +242,7 @@ html body .splash-screen {
   height: 100vh;
   width: 100vw;
   display: grid;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/hero-image.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/splash/hero-image.jpg');
   background-size: cover;
   background-position: center;
   transition: all 0.7s ease-in;
@@ -170,10 +309,15 @@ html body .top-bar {
   z-index: 50;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   transition: all 1s ease-in;
 }
 @media only screen and (min-width: 768px) {
+  html body .top-bar {
+    padding: 0.5rem 3rem 0.5rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
   html body .top-bar {
     padding: 1.5rem 3rem 0.5rem;
   }
@@ -189,7 +333,7 @@ html body .top-bar .left-nav a {
   color: #323232;
   align-self: center;
   justify-self: start;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   transition: all 0.5s ease-out;
 }
 @media only screen and (min-width: 768px) {
@@ -212,9 +356,14 @@ html body .top-bar .block-logo h4 {
   align-self: center;
   justify-self: center;
   font-weight: 400;
-  font-size: 1.9rem;
+  font-size: 1.5rem;
   transition: all 0.4s ease-out;
   overflow: hidden;
+}
+@media only screen and (min-width: 768px) {
+  html body .top-bar .block-logo h4 {
+    font-size: 1.9rem;
+  }
 }
 @media only screen and (min-width: 2560px) {
   html body .top-bar .block-logo h4 {
@@ -237,7 +386,12 @@ html body .top-bar .right-nav i {
   align-self: center;
   justify-self: end;
   transition: all 0.5s ease-out;
-  font-size: 18px;
+  font-size: 16px;
+}
+@media only screen and (min-width: 768px) {
+  html body .top-bar .right-nav i {
+    font-size: 18px;
+  }
 }
 @media only screen and (min-width: 1366px) {
   html body .top-bar .right-nav i {
@@ -292,7 +446,12 @@ html body .bottom-bar .center-bar:before {
 }
 html body .bottom-bar .center-bar p {
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
+}
+@media only screen and (min-width: 768px) {
+  html body .bottom-bar .center-bar p {
+    font-size: 0.85rem;
+  }
 }
 @media only screen and (min-width: 1366px) {
   html body .bottom-bar .center-bar p {
@@ -316,11 +475,16 @@ html body .bottom-bar .right-nav ul li {
 html body .bottom-bar .right-nav ul li a {
   color: #323232;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 1rem;
   padding-right: 0;
 }
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 768px) {
+  html body .bottom-bar .right-nav ul li a {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
   html body .bottom-bar .right-nav ul li a {
     font-size: 1rem;
   }
@@ -335,12 +499,10 @@ html body header {
   display: grid;
   grid-template-areas: "head";
   z-index: 10;
-  padding: 4rem 0;
 }
 @media only screen and (min-width: 768px) {
   html body header {
     height: 100vh;
-    padding: unset;
   }
 }
 html body header .loader {
@@ -382,7 +544,17 @@ html body header .contents {
   grid-area: head;
   align-self: center;
   justify-self: center;
-  margin-top: 2rem;
+  margin-top: 6rem;
+}
+@media only screen and (min-width: 1440px) {
+  html body header .contents {
+    margin-top: 11rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body header .contents {
+    margin-top: 15rem;
+  }
 }
 html body header .contents .block-intro {
   text-align: center;
@@ -410,7 +582,7 @@ html body header .contents .block-intro h1 {
 html body header .contents .block-intro h1 span {
   position: relative;
   overflow: hidden;
-  transition: all 1s ease-in-out;
+  transition: all 2s ease-in-out;
 }
 html body header .contents .block-intro div {
   transition: all 1.5s ease-in-out;
@@ -442,8 +614,8 @@ html body header .contents .block-intro div p {
 }
 html body header .contents .block-gallery {
   margin-top: 3rem;
-  display: grid;
   grid-template-areas: "content";
+  transition: all 0.5s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   html body header .contents .block-gallery {
@@ -454,35 +626,32 @@ html body header .contents .block-gallery:before {
   content: " ";
   align-self: center;
   justify-self: center;
-  height: 100%;
-  width: 1px;
+  height: 1px;
+  width: 100%;
   background-color: #323232;
   grid-area: content;
-}
-@media only screen and (min-width: 768px) {
-  html body header .contents .block-gallery:before {
-    height: 1px;
-    width: 100%;
-  }
+  transition: all 1s ease;
 }
 html body header .contents .block-gallery .wrapper {
   grid-area: content;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 @media only screen and (min-width: 768px) {
   html body header .contents .block-gallery .wrapper {
+    display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }
 html body header .contents .block-gallery .wrapper .img {
-  height: 10rem;
-  width: 10rem;
+  height: 8rem;
+  width: 8rem;
   margin: 0.3rem;
   background-size: cover;
-  transition: all 0.5s ease-in-out;
+  animation: glitter 3s infinite;
+  transition: opacity 1.1s ease-in-out, transform 1.12s ease-in-out;
 }
 @media only screen and (min-width: 768px) {
   html body header .contents .block-gallery .wrapper .img {
@@ -511,17 +680,15 @@ html body header .contents .block-gallery .wrapper .img {
     margin: 2rem;
   }
 }
-html body header .contents .block-gallery .wrapper .img:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-}
 html body header .contents .block-gallery .wrapper .img:nth-child(1) {
   background-image: url('../img/header/img-01.jpg');
   background-position: center 50%;
+  animation-delay: 2500ms;
 }
 html body header .contents .block-gallery .wrapper .img:nth-child(2) {
   background-image: url('../img/header/img-02.jpg');
   background-position: center 50%;
+  animation-delay: 1750ms;
 }
 html body header .contents .block-gallery .wrapper .img:nth-child(3) {
   background-image: url('../img/header/img-03.jpg');
@@ -530,41 +697,50 @@ html body header .contents .block-gallery .wrapper .img:nth-child(3) {
 html body header .contents .block-gallery .wrapper .img:nth-child(4) {
   background-image: url('../img/header/img-04.jpg');
   background-position: center 50%;
+  animation-delay: 500ms;
 }
 html body header .contents .block-gallery .wrapper .img:nth-child(5) {
   background-image: url('../img/header/img-05.jpg');
   background-position: center 50%;
+  animation-delay: 3500ms;
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  html body header .contents .block-gallery .wrapper .img:nth-child(5) {
+    display: block;
+  }
 }
 html body header .contents .block-gallery .wrapper .long {
-  width: 12rem;
+  width: 8rem;
 }
 @media only screen and (min-width: 768px) {
   html body header .contents .block-gallery .wrapper .long {
     width: 10rem;
-    height: 10rem;
+    height: 13rem;
   }
 }
 @media only screen and (min-width: 1366px) {
   html body header .contents .block-gallery .wrapper .long {
-    height: 13rem;
+    height: 17rem;
     width: 13rem;
   }
 }
 @media only screen and (min-width: 1440px) {
   html body header .contents .block-gallery .wrapper .long {
-    height: 17rem;
+    height: 22rem;
     width: 17rem;
   }
 }
 @media only screen and (min-width: 2560px) {
   html body header .contents .block-gallery .wrapper .long {
-    height: 22rem;
+    height: 27rem;
     width: 22rem;
   }
 }
 html body main {
   display: none;
   padding: 0;
+  transition: all 0.5s ease;
 }
 @media only screen and (min-width: 1366px) {
   html body main {
@@ -572,12 +748,12 @@ html body main {
   }
 }
 html body main section {
-  padding: 3rem 0;
+  padding: 3rem 1rem;
   margin: 2rem 0;
 }
 @media only screen and (min-width: 768px) {
   html body main section {
-    padding: 4rem 0;
+    padding: 4rem 2rem;
   }
 }
 @media only screen and (min-width: 1366px) {
@@ -607,84 +783,6 @@ html body main section.inversed {
 }
 html body main section .block-content {
   grid-area: text;
-}
-html body main section .block-content .block-title {
-  text-align: center;
-}
-@media only screen and (min-width: 1366px) {
-  html body main section .block-content .block-title {
-    text-align: left;
-  }
-}
-html body main section .block-content .block-title h1 {
-  padding: 1rem;
-  color: #AB986E;
-}
-html body main section .block-content .block-title h1 em {
-  font-weight: 400;
-  font-size: 2rem;
-  z-index: 2;
-  top: 1rem;
-}
-@media only screen and (min-width: 768px) {
-  html body main section .block-content .block-title h1 em {
-    font-size: 3rem;
-  }
-}
-@media only screen and (min-width: 1366px) {
-  html body main section .block-content .block-title h1 em {
-    font-size: 5rem;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body main section .block-content .block-title h1 em {
-    font-size: 6rem;
-  }
-}
-html body main section .block-content .block-title h1 span {
-  color: #ffffff;
-  font-family: 'Alex Brush', cursive;
-  font-weight: 400;
-  font-size: 6rem;
-  bottom: 1rem;
-  left: 0;
-}
-@media only screen and (min-width: 1366px) {
-  html body main section .block-content .block-title h1 span {
-    font-size: 10rem;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body main section .block-content .block-title h1 span {
-    font-size: 12rem;
-  }
-}
-@media only screen and (min-width: 2560px) {
-  html body main section .block-content .block-title h1 span {
-    font-size: 16rem;
-  }
-}
-html body main section .block-content .block-text {
-  text-align: center;
-}
-@media only screen and (min-width: 1366px) {
-  html body main section .block-content .block-text {
-    text-align: left;
-  }
-}
-html body main section .block-content .block-text p {
-  opacity: 0.7;
-  font-size: 0.8rem;
-}
-@media only screen and (min-width: 1366px) {
-  html body main section .block-content .block-text p {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body main section .block-content .block-text p {
-    font-size: 1.3rem;
-  }
 }
 html body main section .block-photo {
   grid-area: photo;
@@ -736,6 +834,19 @@ html body main #sect-about .block-content .block-text {
 html body main #sect-about .block-content .block-text p {
   text-align: center;
 }
+html body main #sect-about .block-content .block-button {
+  margin: 2rem 0;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-about .block-content .block-button {
+    margin: 3rem 0;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main #sect-about .block-content .block-button {
+    margin: 5rem 0;
+  }
+}
 html body main #sect-gallery .block-content .block-title h1 em {
   position: relative;
   top: 3rem;
@@ -751,6 +862,11 @@ html body main #sect-gallery .block-content .block-title h1 em {
   html body main #sect-gallery .block-content .block-title h1 em {
     top: 3rem;
     left: unset;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main #sect-gallery .block-content .block-title h1 em {
+    top: -6rem;
   }
 }
 html body main #sect-gallery .block-content .block-title h1 span {
@@ -770,4 +886,223 @@ html body main #sect-gallery .block-content .block-title h1 span {
     bottom: 3rem;
     left: 7rem;
   }
+}
+@media only screen and (min-width: 2560px) {
+  html body main #sect-gallery .block-content .block-title h1 span {
+    bottom: 0rem;
+    left: -14rem;
+  }
+}
+html body main #sect-products .block-content .block-title h1 em {
+  position: relative;
+  top: 3rem;
+  left: 0;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-content .block-title h1 em {
+    top: 0;
+    left: 5rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-content .block-title h1 em {
+    top: 3rem;
+    left: unset;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main #sect-products .block-content .block-title h1 em {
+    top: 0;
+  }
+}
+html body main #sect-products .block-content .block-title h1 span {
+  position: relative;
+  bottom: 2rem;
+  right: 3rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-content .block-title h1 span {
+    top: 0;
+    left: -4rem;
+    bottom: 0;
+    right: unset;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-content .block-title h1 span {
+    top: 5rem;
+    left: -8rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  html body main #sect-products .block-content .block-title h1 span {
+    top: 3rem;
+    left: -8rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body main #sect-products .block-content .block-title h1 span {
+    top: 6rem;
+    left: -14rem;
+  }
+}
+html body main #sect-products .block-halfed {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-areas: "photo" "text";
+  grid-gap: 1rem;
+  padding: 1rem 0;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-halfed {
+    padding: 5rem 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "text photo";
+    grid-template-rows: 1fr;
+  }
+}
+html body main #sect-products .block-halfed .block-gallery .wrapper {
+  display: grid;
+  grid-template-areas: "one one" "two two" "three three";
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-halfed .block-gallery .wrapper {
+    grid-template-areas: "one two" "three two";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 10rem);
+    position: sticky;
+    top: 5rem;
+    height: 60%;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-halfed .block-gallery .wrapper {
+    grid-template-areas: "one two" "three two";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    height: auto;
+  }
+}
+html body main #sect-products .block-halfed .block-gallery .wrapper .img {
+  width: 100%;
+  height: 10rem;
+  margin: 0 1rem;
+  justify-self: center;
+  background-size: cover;
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-halfed .block-gallery .wrapper .img {
+    height: 25rem;
+  }
+}
+html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(1) {
+  grid-area: one;
+  background-image: url('../img/products/one.jpg');
+  background-position: center;
+}
+html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(2) {
+  grid-area: two;
+  height: 10rem;
+  background-image: url('../img/products/two.jpg');
+  background-position: center 50%;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(2) {
+    height: 21rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(2) {
+    height: 100%;
+  }
+}
+html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(3) {
+  grid-area: three;
+  background-image: url('../img/products/three.jpg');
+  background-position: center 90%;
+}
+html body main #sect-products .block-halfed .block-photo {
+  display: grid;
+  grid-template-areas: "contents";
+}
+html body main #sect-products .block-halfed .block-photo .block-content {
+  grid-area: contents;
+  width: 100%;
+  justify-self: center;
+  align-self: start;
+}
+@media only screen and (min-width: 768px) {
+  html body main #sect-products .block-halfed .block-photo .block-content {
+    width: 85%;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-halfed .block-photo .block-content {
+    width: 60%;
+    position: sticky;
+    top: 5rem;
+  }
+}
+html body main #sect-products .block-halfed .block-photo .block-content li {
+  list-style: none;
+  border-bottom: 2px solid #AB986E;
+  padding: 1rem 0;
+}
+html body main #sect-products .block-halfed .block-photo .block-content li p {
+  opacity: 0.7;
+}
+html body main #sect-products .block-halfed .block-photo .block-content li p span {
+  font-weight: 600;
+  font-size: 3rem;
+  color: #AB986E;
+}
+html body footer {
+  padding: 0;
+  background-image: linear-gradient(rgba(239, 230, 213, 0.82), rgba(239, 230, 213, 0.82)), url('../img/parallaxe/footer.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+}
+@media only screen and (min-width: 1366px) {
+  html body footer {
+    padding: 6rem 3rem;
+    margin: 1.5rem;
+  }
+}
+html body footer .block-content {
+  align-self: center;
+}
+html body footer .block-content .block-title {
+  text-align: center;
+}
+html body footer .block-content .block-title h1 {
+  padding: 0;
+}
+html body footer .block-content .block-title h1 em {
+  position: relative;
+  left: 3rem;
+  top: 0;
+}
+@media only screen and (min-width: 1366px) {
+  html body footer .block-content .block-title h1 em {
+    left: 3rem;
+  }
+}
+html body footer .block-content .block-title h1 span {
+  position: relative;
+  right: 3rem;
+  bottom: 0;
+  left: unset;
+}
+@media only screen and (min-width: 1366px) {
+  html body footer .block-content .block-title h1 span {
+    right: 3rem;
+  }
+}
+html body footer .block-content .block-text {
+  text-align: center  ;
 }

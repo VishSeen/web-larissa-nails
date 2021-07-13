@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////
-const colorPrimary = '#AB986E';
+const colorPrimary = '#EFE6D5';
 
 const hide = 'hide';
 
@@ -7,6 +7,7 @@ const crawlUp = 'up';
 const crawlDown = 'down';
 const fadeIn = 'fade-in';
 const slideIn = 'slide-in';
+const scaleUp = 'scale-up';
 
 
 
@@ -14,16 +15,45 @@ const slideIn = 'slide-in';
 // EVENT HANDLERS :
 window.onload = new function() {
     introAnimation();
-
 }
 
+
+window.addEventListener("scroll", function(event) {
+    // store scrollY value
+    let scrollTopVal = this.scrollY;
+
+    // smoothScrollMain(scrollTopVal);
+});
 
 
 
 ////////////////////////////////////////////////////////////
 // FUNCTION DECLARATIONS :
+
+// SCROLL DELAY CALCULATION : Calculate delay for scroll
+function calcScrollVal(scrollYVal) {
+    let newScrollVal = (scrollYVal / 2 * 3);
+    return newScrollVal;
+}
+
+// SCROLL DELAY ANIMATION : Delay effect on scrolling
+function smoothScrollMain(scrollYVal) {
+    let delay = (scrollYVal / 2 * 2);
+
+    const header = document.querySelectorAll('header')[0];
+    const main = document.querySelectorAll('main')[0];
+    header.style.transform = "translate3d(0,-" + delay + "px, 0)";
+    main.style.transform = "translate3d(0,-" + delay + "px, 0)";
+}
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+// STARTUP ANIMATION :
+////////////////////////////////////////////////////////////
 function introAnimation() {
     const splashScreen = document.querySelectorAll('.splash-screen')[0];
+    const topBar = document.querySelectorAll('.top-bar')[0];
     const HeaderLoader = document.querySelectorAll('header .loader')[0];
 
     // STEPS :
@@ -40,7 +70,6 @@ function introAnimation() {
 
     // 2. slide loader
     setTimeout(function() {
-        const topBar = document.querySelectorAll('.top-bar')[0];
         const bottomBar = document.querySelectorAll('.bottom-bar')[0];
 
         for (let i = 1; i < 5; i++) {
@@ -71,7 +100,6 @@ function introAnimation() {
         bottomBarScroll.classList.add(fadeIn);
         bottomBarNav.classList.add(fadeIn);
     }, 4600);
-
     setTimeout(function() {
         HeaderLoader.style.display = 'none';
         splashScreen.classList.add(hide);
@@ -83,11 +111,26 @@ function introAnimation() {
         headerh1SpanTwo.classList.add(crawlUp);
         headerP.classList.add(fadeIn);
     }, 4700);
+    setTimeout(function() {
+        const headerBlockGallery = document.querySelectorAll('header .block-gallery')[0];
+        headerBlockGallery.classList.add(fadeIn);
+
+        for (let i = 1; i < 6; i++) {
+            const headerImg = document.querySelectorAll('header .block-gallery .wrapper .img:nth-child(' + i + ')')[0];
+            headerImg.classList.add(fadeIn);
+            headerImg.classList.add(scaleUp);
+        }
+
+        topBar.style.backgroundColor = colorPrimary;
+    }, 5000);
 
 
     // 4. display main
     setTimeout(function() {
         const main = document.querySelectorAll('main')[0];
         main.style.display = 'block';
-    }, 8000);
+
+        const eleImage = document.querySelectorAll('.img')[0];
+        eleImage.style.transitionDelay = 0;
+    }, 6200);
 }
