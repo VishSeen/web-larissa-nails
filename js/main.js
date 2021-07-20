@@ -5,46 +5,11 @@ const hide = 'hide';
 
 const crawlUp = 'up';
 const crawlDown = 'down';
+const scaleUp = 'scale-up';
 const fadeIn = 'fade-in';
 const slideIn = 'slide-in';
-const scaleUp = 'scale-up';
 
 
-
-////////////////////////////////////////////////////////////
-// EVENT HANDLERS :
-window.onload = new function() {
-    introAnimation();
-}
-
-
-window.addEventListener("scroll", function(event) {
-    // store scrollY value
-    let scrollTopVal = this.scrollY;
-
-    // smoothScrollMain(scrollTopVal);
-});
-
-
-
-////////////////////////////////////////////////////////////
-// FUNCTION DECLARATIONS :
-
-// SCROLL DELAY CALCULATION : Calculate delay for scroll
-function calcScrollVal(scrollYVal) {
-    let newScrollVal = (scrollYVal / 2 * 3);
-    return newScrollVal;
-}
-
-// SCROLL DELAY ANIMATION : Delay effect on scrolling
-function smoothScrollMain(scrollYVal) {
-    let delay = (scrollYVal / 2 * 2);
-
-    const header = document.querySelectorAll('header')[0];
-    const main = document.querySelectorAll('main')[0];
-    header.style.transform = "translate3d(0,-" + delay + "px, 0)";
-    main.style.transform = "translate3d(0,-" + delay + "px, 0)";
-}
 
 
 ////////////////////////////////////////////////////////////
@@ -124,13 +89,83 @@ function introAnimation() {
         topBar.style.backgroundColor = colorPrimary;
     }, 5000);
 
+    setTimeout(function() {
+        const headerBlockGallery = document.querySelectorAll('header .block-gallery')[0];
+        headerBlockGallery.classList.remove(hide);
+
+        for (let i = 1; i < 6; i++) {
+            const headerImg = document.querySelectorAll('header .block-gallery .wrapper .img:nth-child(' + i + ')')[0];
+            headerImg.classList.add(scaleUp);
+        }
+    }, 5500);
 
     // 4. display main
     setTimeout(function() {
         const main = document.querySelectorAll('main')[0];
         main.style.display = 'block';
-
         const eleImage = document.querySelectorAll('.img')[0];
         eleImage.style.transitionDelay = 0;
     }, 6200);
+}
+
+
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+// EVENT HANDLERS :
+window.onload = new function() {
+    introAnimation();
+}
+
+
+window.addEventListener("scroll", function(event) {
+    // store scrollY value
+    let scrollTopVal = this.scrollY;
+
+    // smoothScrollMain(scrollTopVal);
+});
+
+
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+// FUNCTION DECLARATIONS :
+
+// CHECK IF ELEMENT VISIBLE : Get an element and verify if it is in viewport
+function isElementVisible(el) {
+    var rect = el.getBoundingClientRect(),
+        vWidth = window.innerWidth || document.documentElement.clientWidth,
+        vHeight = window.innerHeight || document.documentElement.clientHeight,
+        efp = function(x, y) { return document.elementFromPoint(x, y) };
+
+    // Return false if it's not in the viewport
+    if (rect.right < 0 || rect.bottom < 0 ||
+        rect.left > vWidth || rect.top > vHeight)
+        return false;
+
+    // Return true if any of its four corners are visible
+    return (
+        el.contains(efp(rect.left, rect.top)) ||
+        el.contains(efp(rect.right, rect.top)) ||
+        el.contains(efp(rect.right, rect.bottom)) ||
+        el.contains(efp(rect.left, rect.bottom))
+    );
+}
+
+// SCROLL DELAY CALCULATION : Calculate delay for scroll
+function calcScrollVal(scrollYVal) {
+    let newScrollVal = (scrollYVal / 2 * 3);
+    return newScrollVal;
+}
+
+// SCROLL DELAY ANIMATION : Delay effect on scrolling
+function smoothScrollMain(scrollYVal) {
+    let delay = (scrollYVal / 2 * 2);
+
+    const header = document.querySelectorAll('header')[0];
+    const main = document.querySelectorAll('main')[0];
+    header.style.transform = "translate3d(0,-" + delay + "px, 0)";
+    main.style.transform = "translate3d(0,-" + delay + "px, 0)";
 }

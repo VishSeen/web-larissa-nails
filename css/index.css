@@ -93,8 +93,9 @@
   margin: 0;
   padding: 0;
 }
-ul li {
+li {
   list-style: none;
+  transition: all 0.7s ease-in;
 }
 a {
   text-decoration: none;
@@ -134,11 +135,11 @@ p {
   color: #ffffff;
   font-size: 0.7rem;
   padding: 0.5rem 1.5rem;
-  filter: drop-shadow(0px 1px 14px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25));
   transition: all 0.5s ease;
 }
 .block-button a:hover {
-  filter: drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25));
+  border-radius: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
   .block-button a {
@@ -309,17 +310,11 @@ html body .top-bar {
   z-index: 50;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  padding: 0rem 1rem;
   transition: all 1s ease-in;
 }
 @media only screen and (min-width: 768px) {
   html body .top-bar {
-    padding: 0.5rem 3rem 0.5rem;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  html body .top-bar {
-    padding: 1.5rem 3rem 0.5rem;
+    padding: 0.5rem 2rem;
   }
 }
 html body .top-bar .grid {
@@ -329,12 +324,16 @@ html body .top-bar .left-nav {
   transition: all 0.5s ease-in-out;
 }
 html body .top-bar .left-nav a {
+  padding: 1rem;
   font-weight: 500;
   color: #323232;
   align-self: center;
   justify-self: start;
   font-size: 0.7rem;
   transition: all 0.5s ease-out;
+}
+html body .top-bar .left-nav a:hover {
+  opacity: 0.5;
 }
 @media only screen and (min-width: 768px) {
   html body .top-bar .left-nav a {
@@ -346,8 +345,10 @@ html body .top-bar .left-nav a {
     font-size: 1rem;
   }
 }
-html body .top-bar .left-nav a:hover {
-  opacity: 0.5;
+@media only screen and (min-width: 2560px) {
+  html body .top-bar .left-nav a {
+    font-size: 1.2rem;
+  }
 }
 html body .top-bar .block-logo {
   font-family: 'Parisienne', cursive;
@@ -382,16 +383,10 @@ html body .top-bar .right-nav {
 }
 html body .top-bar .right-nav i {
   padding: 1rem;
-  padding-right: 0;
   align-self: center;
   justify-self: end;
   transition: all 0.5s ease-out;
-  font-size: 16px;
-}
-@media only screen and (min-width: 768px) {
-  html body .top-bar .right-nav i {
-    font-size: 18px;
-  }
+  font-size: 18px;
 }
 @media only screen and (min-width: 1366px) {
   html body .top-bar .right-nav i {
@@ -415,7 +410,6 @@ html body .bottom-bar {
   display: grid;
   grid-template-areas: "nav";
   padding: 0.5rem 1rem 1.5rem;
-  padding-top: 0;
 }
 @media only screen and (min-width: 768px) {
   html body .bottom-bar {
@@ -476,8 +470,7 @@ html body .bottom-bar .right-nav ul li a {
   color: #323232;
   font-weight: 600;
   font-size: 0.7rem;
-  padding: 1rem;
-  padding-right: 0;
+  padding: 0.5rem;
 }
 @media only screen and (min-width: 768px) {
   html body .bottom-bar .right-nav ul li a {
@@ -495,15 +488,10 @@ html body .bottom-bar .right-nav ul li a {
   }
 }
 html body header {
-  height: auto;
+  height: 100vh;
   display: grid;
   grid-template-areas: "head";
   z-index: 10;
-}
-@media only screen and (min-width: 768px) {
-  html body header {
-    height: 100vh;
-  }
 }
 html body header .loader {
   grid-area: head;
@@ -518,6 +506,7 @@ html body header .loader .bar {
 }
 html body header .loader .bar:nth-child(1) {
   transition-delay: 0;
+  transition-delay: 275ms;
 }
 @media only screen and (min-width: 768px) {
   html body header .loader .bar:nth-child(1) {
@@ -526,11 +515,7 @@ html body header .loader .bar:nth-child(1) {
 }
 html body header .loader .bar:nth-child(2) {
   transition-delay: 0;
-}
-@media only screen and (min-width: 768px) {
-  html body header .loader .bar:nth-child(2) {
-    transition-delay: 275ms;
-  }
+  transition-delay: 275ms;
 }
 html body header .loader .bar:nth-child(3) {
   transition-delay: 0;
@@ -823,14 +808,6 @@ html body main #sect-about .block-content .block-title h1 span {
     right: 3rem;
   }
 }
-html body main #sect-about .block-content .block-text {
-  width: 75%;
-}
-@media only screen and (min-width: 1366px) {
-  html body main #sect-about .block-content .block-text {
-    width: 50%;
-  }
-}
 html body main #sect-about .block-content .block-text p {
   text-align: center;
 }
@@ -992,6 +969,7 @@ html body main #sect-products .block-halfed .block-gallery .wrapper .img {
   margin: 0 1rem;
   justify-self: center;
   background-size: cover;
+  transition: all 0.7s ease;
 }
 @media only screen and (min-width: 1366px) {
   html body main #sect-products .block-halfed .block-gallery .wrapper .img {
@@ -1008,6 +986,7 @@ html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-chi
   height: 10rem;
   background-image: url('../img/products/two.jpg');
   background-position: center 50%;
+  transition-delay: 500ms;
 }
 @media only screen and (min-width: 768px) {
   html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-child(2) {
@@ -1023,6 +1002,7 @@ html body main #sect-products .block-halfed .block-gallery .wrapper .img:nth-chi
   grid-area: three;
   background-image: url('../img/products/three.jpg');
   background-position: center 90%;
+  transition-delay: 250ms;
 }
 html body main #sect-products .block-halfed .block-photo {
   display: grid;
@@ -1051,8 +1031,19 @@ html body main #sect-products .block-halfed .block-photo .block-content li {
   border-bottom: 2px solid #AB986E;
   padding: 1rem 0;
 }
+html body main #sect-products .block-halfed .block-photo .block-content li:nth-child(2) {
+  transition-delay: 250ms;
+}
+html body main #sect-products .block-halfed .block-photo .block-content li:nth-child(3) {
+  transition-delay: 500ms;
+}
 html body main #sect-products .block-halfed .block-photo .block-content li p {
   opacity: 0.7;
+}
+@media only screen and (min-width: 1366px) {
+  html body main #sect-products .block-halfed .block-photo .block-content li p {
+    white-space: normal;
+  }
 }
 html body main #sect-products .block-halfed .block-photo .block-content li p span {
   font-weight: 600;
@@ -1061,6 +1052,7 @@ html body main #sect-products .block-halfed .block-photo .block-content li p spa
 }
 html body footer {
   padding: 0;
+  padding-bottom: 1rem;
   background-image: linear-gradient(rgba(239, 230, 213, 0.82), rgba(239, 230, 213, 0.82)), url('../img/parallaxe/footer.jpg');
   background-position: center;
   background-size: cover;
@@ -1070,6 +1062,7 @@ html body footer {
 @media only screen and (min-width: 1366px) {
   html body footer {
     padding: 6rem 3rem;
+    padding-bottom: 2rem;
     margin: 1.5rem;
   }
 }
@@ -1078,6 +1071,17 @@ html body footer .block-content {
 }
 html body footer .block-content .block-title {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html body footer .block-content .block-title:after {
+  content: "";
+  position: relative;
+  background: #AB986E;
+  height: 2px;
+  width: 30%;
+  bottom: 2rem;
 }
 html body footer .block-content .block-title h1 {
   padding: 0;
@@ -1105,4 +1109,32 @@ html body footer .block-content .block-title h1 span {
 }
 html body footer .block-content .block-text {
   text-align: center  ;
+}
+html body footer .block-copy {
+  align-self: end;
+  justify-self: center;
+}
+html body footer .block-copy p {
+  color: #323232;
+  opacity: 0.8;
+  font-size: 0.7rem;
+}
+@media only screen and (min-width: 768px) {
+  html body footer .block-copy p {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 1366px) {
+  html body footer .block-copy p {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  html body footer .block-copy p {
+    font-size: 1rem;
+  }
+}
+html body footer .block-copy p a {
+  color: #323232;
+  font-weight: 600;
 }
